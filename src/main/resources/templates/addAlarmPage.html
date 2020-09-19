@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>StockAlarmsApp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div style="width: 500px; margin: 20px auto auto;">
+
+    <h1>Stock Alarms App</h1>
+    <br/>
+    <h3>Add new alarm:</h3>
+    <form method="POST" action="/alarms" th:object="${newAlarm}">
+        <div class="form-group">
+            <label for="stockSymbol">Stock</label>
+            <input type="text" name="stockSymbol" id="stockSymbol" class="form-control" th:value="${alarm.stockSymbol}">
+        </div>
+        <div class="form-group">
+            <label for="target">Target</label>
+            <input type="text" name="target" id="target" class="form-control" th:value="${alarm.target}">
+        </div>
+
+        <button class="btn btn-success" type="submit">Save</button>
+
+        <label th:text="${error}"></label>
+    </form>
+
+</div>
+
+</body>
+</html>
