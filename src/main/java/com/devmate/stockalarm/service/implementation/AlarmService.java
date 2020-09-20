@@ -1,4 +1,4 @@
-package com.devmate.stockalarm.service;
+package com.devmate.stockalarm.service.implementation;
 
 import com.devmate.stockalarm.dto.AlarmDto;
 

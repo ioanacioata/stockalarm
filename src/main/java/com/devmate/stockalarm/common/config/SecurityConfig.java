@@ -1,6 +1,6 @@
-package com.devmate.stockalarm.common.security;
+package com.devmate.stockalarm.common.config;
 
-import com.devmate.stockalarm.service.UserService;
+import com.devmate.stockalarm.service.implementation.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;

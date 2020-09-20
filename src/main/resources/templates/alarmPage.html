@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<div style="width: 500px; margin: 20px auto auto;">
+<div style="width: 800px; margin: 20px auto auto;">
 
     <h1>Stock Alarms App</h1>
     <br/>
@@ -24,7 +24,7 @@
             <th scope="col"> Target</th>
             <th scope="col"> Variance</th>
             <th scope="col"> Active</th>
-            <th> Action</th>
+            <th></th>
         </tr>
         </thead>
         <tbody>
@@ -39,14 +39,23 @@
             <td><span th:text="${alarm.variance}"> Variance </span></td>
             <td><span th:text="${alarm.isActive}"> Active </span></td>
             <td>
-                <form method="GET" action="/alarms/edit" >
-                    <input type="hidden" name="id" th:value="${alarm.id}">
-                    <input type="submit" class="btn btn-info" value="Edit">
-                </form>
-                <form th:method="POST" th:action="@{/alarms/delete}" >
-                    <input type="hidden" name="id" th:value="${alarm.id}">
-                    <input type="submit" class="btn btn-danger" value="Delete ">
-                </form>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <form method="GET" action="/alarms/edit">
+                                <input type="hidden" name="id" th:value="${alarm.id}">
+                                <input type="submit" class="btn btn-info" value="Edit">
+                            </form>
+                        </div>
+
+                        <div class="col-sm">
+                            <form th:method="POST" th:action="@{/alarms/delete}">
+                                <input type="hidden" name="id" th:value="${alarm.id}">
+                                <input type="submit" class="btn btn-danger" value="Delete ">
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </td>
         </tr>
         </tbody>

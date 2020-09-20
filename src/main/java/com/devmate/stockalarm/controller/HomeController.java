@@ -2,7 +2,7 @@ package com.devmate.stockalarm.controller;
 
 import com.devmate.stockalarm.common.exception.UserException;
 import com.devmate.stockalarm.model.User;
-import com.devmate.stockalarm.service.UserService;
+import com.devmate.stockalarm.service.implementation.UserService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
