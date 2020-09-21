@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>StockAlarmsApp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div style="width: 500px; margin: 20px auto auto;">
+
+    <h1>Stock Alarms App</h1>
+    <br/>
+    <form method="POST" action="/alarms/edit" th:object="${newAlarm}">
+
+        <h3>Edit alarm: <label th:text="${alarm.stockSymbol}"></label></h3>
+        <div class="form-group">
+            <label for="target">Target</label>
+            <input type="text" name="target" id="target" class="form-control" th:value="${alarm.target}">
+        </div>
+        <div class="form-group">
+            <label for="isActive">Is Active</label>
+            <input type="checkbox" id="isActive" name="isActive" th:field="${alarm.isActive}" value="true"/>
+        </div>
+
+        <input type="hidden" name="id" th:value="${alarm.id}"/>
+        <input type="hidden" name="stockSymbol" th:value="${alarm.stockSymbol}"/>
+        <input type="hidden" name="initialPrice" th:value="${alarm.initialPrice}"/>
+        <button class="btn btn-success" type="submit">Save</button>
+
+        <label th:text="${error}"></label>
+    </form>
+</div>
+
+</body>
+</html>

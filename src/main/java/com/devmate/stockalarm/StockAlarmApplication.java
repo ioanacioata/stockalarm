@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class StockAlarmApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(StockAlarmApplication.class, args);
-	}
-
+  public static void main(String[] args) {
+    SpringApplication.run(StockAlarmApplication.class, args);
+  }
 }

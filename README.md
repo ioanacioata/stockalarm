@@ -6,6 +6,12 @@ Database: PostgreSQL (name: stock_alarms)
 
 Application runs on http://localhost:8080/
 
+Note: In order to run the application you need to set the following environment variables:
+```   
+STOCK_DATA_API_KEY = <api key value>
+STOCK_ALARMS_EMAIL = <email address from which the applications sends emails>
+STOCK_ALARMS_PASSWORD = <password for the email address above>
+```
 
 
 # Problem statement

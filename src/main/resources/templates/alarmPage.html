@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>StockAlarmsApp</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div style="width: 800px; margin: 20px auto auto;">
+
+    <h1>Stock Alarms App</h1>
+    <br/>
+    <h2>Your alarms ...</h2>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col"> Stock</th>
+            <th scope="col"> Initial Price</th>
+            <th scope="col"> Current Price</th>
+            <th scope="col"> Target</th>
+            <th scope="col"> Variance</th>
+            <th scope="col"> Active</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${alarms.empty}">
+            <td colspan="5"> No Alarms Available</td>
+        </tr>
+        <tr th:each="alarm : ${alarms}">
+            <td><span th:text="${alarm.stockSymbol}"> Symbol </span></td>
+            <td><span th:text="${alarm.initialPrice}"> Initial Price </span></td>
+            <td><span th:text="${alarm.currentPrice}"> Current Price </span></td>
+            <td><span th:text="${alarm.target}"> Target </span></td>
+            <td><span th:text="${alarm.variance}"> Variance </span></td>
+            <td><span th:text="${alarm.isActive}"> Active </span></td>
+            <td>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <form method="GET" action="/alarms/edit">
+                                <input type="hidden" name="id" th:value="${alarm.id}">
+                                <input type="submit" class="btn btn-info" value="Edit">
+                            </form>
+                        </div>
+
+                        <div class="col-sm">
+                            <form th:method="POST" th:action="@{/alarms/delete}">
+                                <input type="hidden" name="id" th:value="${alarm.id}">
+                                <input type="submit" class="btn btn-danger" value="Delete ">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form method="GET" action="/alarms/add">
+        <input type="submit" class="btn btn-success" value="Add Alarm">
+    </form>
+
+</div>
+
+</body>
+</html>
